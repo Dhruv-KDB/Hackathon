@@ -1,0 +1,155 @@
+# COVID Crisis Communications Solution
+
+This solution  is created by Techno Pioneers team.
+
+## Authors
+
+- [Sansparsh singh]-VIT Chennai
+- [Sarthak sarode]-VIT Chennai
+- [Aaradhya kumar]-VIT Chennai
+
+## Contents
+
+1. [Overview](#overview)
+2. [Video](#video)
+3. [The idea](#the-idea)
+4. [How it works](#how it-works)
+5. [Datasets](#datasets)
+6. [Technology](#technology)
+7. [Getting started](#Getting started)
+
+
+## Overview
+
+### What's the problem?
+In times of crisis, communications systems are often overwhelmed with people trying to find basic information about testing, symptoms, community response, and other resources. When communication lines get clogged, people who need real help can't get through. Chatbots help respond to tens, even hundreds, of thousands of messages a day.
+
+### How can technology help ?
+
+Whether via text, phone, websites, or communication apps, conversing with chatbots and other AI-enabled resources can play a critical role in helping communities quickly understand crucial information and free up customer service resources to focus on higher-level issues.
+
+IBM Watson Assistant service helps you build, train, and deploy conversational interactions into any application, device, or channel. Creating a chatbot using Watson Assistant can help address the issues that our users face while trying to gather accurate, relevant information. Whether you're trying to learn the latest news about Covid-19 or learn where there's testing in your area, a chatbot can play a major role in helping communities quickly understand crucial information and free up customer service resources to focus on higher-level issues.
+
+## Video
+
+[![Solution for the Crisis Communication theme](https://youtu.be/Z76Smmt4nY0)]
+
+## The idea
+
+COVID-19 has citizens looking for answers about symptoms and testing sites as well as current status of schools, transportation, and other public services. Using Watson Assistant, this Call for Code Starter Kit has designed a virtual assistant pre-loaded to understand and respond to common questions about COVID-19, scan COVID-19 news articles using Watson Discovery and respond to COVID statistics inquires with data from trusted sources.
+
+With this Watson Assistant we can integrate a chatbot into our Code solution in an IBM Cloud hosted web server(Node.js).
+
+It can:
+- Respond by sharing consistent, accurate COVID-19 information
+- Help citizens quickly and easily access the latest information & stats about COVID-19.
+- Help citizens to attend webinars on WHO & other organisations by providing instant links 
+- Automatically update information with the latest developments and recommendations
+- Also provide access to popular Tv channel debates on Covid-19.
+- help citizens(from all the states of India) to access news updates(via audio mode) in their local language
+  using IBM text to speech service.
+  
+  
+  ## How it works
+
+### Website integration with COVID-19 crisis communication chatbot
+
+![Crisis Comms Architecture diagram](/images/Crisis-Comms-Architecture-Nodejs-WebServer.png)
+
+1. User visits a website with the COVID-19 chatbot and asks a question.
+2. Node.js web server calls the Watson Assistant service hosted in IBM Cloud.
+3. Watson Assistant uses natural language understanding and machine learning to extract entities and intents of the user question.
+4. Source COVID-19 FAQ information from trusted CDC data.
+5. Watson Assistant invokes an OpenWhisk open source powered IBM Cloud Function.
+6. IBM Cloud Function calls the Watson Discovery service running in IBM Cloud.
+7. Watson Discovery scans news articles and responds with relevant articles.
+8. Watson Assistant invokes an OpenWhisk open source powered IBM Cloud Function.
+9. IBM Cloud Function calls the COVID-19 API to get statistics.
+10. Watson Assistant replies to the user inquiry.
+11. Node.js web server displays the chat answer to the user.
+
+### Voice enabled COVID-19 crisis communication chatbot using Node-RED
+
+![Crisis Comms Architecture diagram](/images/Crisis-Comms-Architecture-Node-RED.png)
+
+1. User visits a voice-enabled Node-RED website with the COVID-19 chatbot and asks a question.
+2. Node-RED records the speech wav file and calls the Watson Speech to Text service hosted in IBM Cloud.
+3. Watson Speech to Text uses machine learning to decode the user's speech.
+4. Watson Speech to Text replies with a transcript of the COVID-19 question and Node-RED calls Watson Assistant service hosted in IBM Cloud.
+5. Watson Assistant uses natural language understanding and machine learning to extract entities and intents of the user's question.
+6. Source COVID-19 FAQ information from trusted CDC data
+7. Watson Assistant invokes an OpenWhisk open source powered IBM Cloud Function.
+8. IBM Cloud Function calls the Watson Discovery service running in IBM Cloud.
+9. Watson Discovery scans news articles and responds with relevant articles.
+10. Watson Assistant invokes an OpenWhisk open source powered IBM Cloud Function.
+11. IBM Cloud Function calls the COVID-19 API to get statistics.
+12. Watson Assistant replies to the user inquiry and Node-RED sends the text transcript to Watson Text to Speech.
+13. Watson Text to Speech encodes the message in the user's language.
+14. Node-RED plays the chat answer wav file to the user.
+15. User listens to the chat answer.
+
+
+
+### Trusted sources for COVID-19 information
+- [CDC COVID-19 FAQ](https://www.cdc.gov/coronavirus/2019-ncov/faq.html)
+
+## Datasets
+
+- covid_19_india.csv(https://www.kaggle.com/sudalairajkumar/covid19-in-india)
+- StatewiseTestingDetails.csv(https://www.kaggle.com/sudalairajkumar/covid19-in-india/discussion/145231)
+- Zones_in_India.csv(https://towardsdatascience.com/coloring-india-red-orange-and-green-covid19-choropleth-map-fc21a00f005f)
+- https://api.covid19india.org/
+
+## Technology
+
+### IBM technology
+
+- [IBM Watson Assistant]
+- [Watson Discovery]
+- [Watson Speech to Text]
+- [Watson Text to Speech]
+- [IBM Cloud Functions]
+- [IBM Knowledge studio]
+- [IBM Language Translator]
+- [IBM Internet services]
+
+### Open source technology
+
+- [Node.js]
+- [Python/PyCharm]
+- [Node-RED]
+- [Html/Css/JavaScript]
+
+## Getting started
+### Setting up an instance of Watson Assistant
+
+Log in to IBM Cloud and provision a Watson Assistant instance.
+
+Step 1. In IBM cloud catalog search for watson asistant.
+
+Step 2. Launch the Watson Assistant service.
+
+Step 3. Click & Create assistant
+
+Step 4. Name the Watson Assistant instance
+
+Step 5.Now Click Add Dialog skill to add JSON file to your assistant.
+
+Step 6. Click on Import skill & Choose JSON file to import it.
+
+Step 7. Go back to the All Assistants page. From the action menu open Settings.
+
+Step 8.  On the Settings tab, click on API Details on the left and make a note of the `Assistant ID` and `Api Key` for future use.
+  
+Step 9. Go back to the All Assistants page and click on the Skills link.
+
+Step 10. On the Skill page, click on the action menu & open & View API Details.
+
+Step 11. On the Skill Details page, make note of the `Skill ID` for future use.
+
+Step 12. Go back to your dialog skill and click on the Preview Link button on the side to get a link to test and verify your assistant.
+  
+Step 13.Now ask the Watson Assistant chatbot some questions about COVID-19.
+
+
+
